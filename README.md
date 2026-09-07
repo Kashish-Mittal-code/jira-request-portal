@@ -1,16 +1,84 @@
-# React + Vite
+# Jira Request Portal
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A web-based request management system that allows users to submit website-related requests and automatically creates Jira tickets for tracking.
 
-Currently, two official plugins are available:
+## Features
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+- Create Jira tickets directly from a web form
+- Automatic Jira issue creation using Jira REST API
+- Request type selection (New Page, Content Update, Bug Fix, Other)
+- Priority selection
+- Go-live date tracking
+- Email validation
+- Direct Jira ticket link generation
+- Clean and responsive UI
 
-## React Compiler
+## Tech Stack
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### Frontend
+- React
+- Vite
+- CSS
 
-## Expanding the ESLint configuration
+### Backend
+- Node.js
+- Express.js
+- Axios
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+### Integration
+- Jira REST API
+
+## Project Structure
+
+```
+jira-request-portal/
+│
+├── src/
+│   ├── App.jsx
+│   └── App.css
+│
+├── backend/
+│   ├── server.js
+│   ├── package.json
+│   └── .env (local only)
+│
+└── README.md
+```
+
+## Installation
+
+### Frontend
+
+```bash
+npm install
+npm run dev
+```
+
+### Backend
+
+```bash
+cd backend
+npm install
+node server.js
+```
+
+## Environment Variables
+
+Create a `.env` file inside the backend folder:
+
+```env
+JIRA_EMAIL=your-email
+JIRA_API_TOKEN=your-api-token
+```
+
+## Workflow
+
+1. User submits request form.
+2. Backend receives request.
+3. Jira API creates a new ticket.
+4. Ticket ID and Jira link are returned.
+5. User can track the request directly in Jira.
+
+## Author
+
+Kashish Mittal
